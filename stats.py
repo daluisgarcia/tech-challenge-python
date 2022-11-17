@@ -6,12 +6,8 @@ class DataStats:
         for value in data_list:
             self.__data_list[value] += 1 # Increment the count of the values in the data list
 
-        print(self.__data_list)
-
         # Builds a list with the amount of numbers less than and greater than each index number
         self.__data_list = [{'less': sum(self.__data_list[:i]), 'greater': sum(self.__data_list[i+1:])} for i in range(len(self.__data_list))]
-
-        print(self.__data_list)
 
 
     def less(self, number: int) -> int: # O(1)
