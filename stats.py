@@ -11,12 +11,21 @@ class DataStats:
 
 
     def less(self, number: int) -> int: # O(1)
-        '''
-        Returns the number of values in the data that are less than the number passed in
+        """Returns the number of values in the data that are less than the number passed in
 
-        :param number: The number to compare the data values to
-        :return: The number of values in the data that are less than the number passed in
-        '''
+        Args:
+            number (int): The number to compare the data values to
+
+        Raises:
+            TypeError: When the number passed in is not an integer
+            ValueError: When the number passed in is not between 0 and the max number in the data
+
+        Returns:
+            int: The number of values in the data that are less than the number passed in
+        """
+        if not isinstance(number, int):
+            raise TypeError('The number must be an integer')
+
         if number < 0 or number > self.__max_number:
             raise ValueError('Number must be between 0 and {}'.format(self.__max_number))
         
@@ -24,13 +33,22 @@ class DataStats:
 
 
     def between(self, low_number: int, high_number: int = 0) -> int: # O(1)
-        '''
-        Returns the number of values in the data that are between the low number and high number passed in
+        """Returns the number of values in the data that are between the low number and high number passed in
 
-        :param low_number: The low number to compare the data values to
-        :param high_number: The high number to compare the data values to
-        :return: The number of values in the data that are between the low number and high number passed in
-        '''
+        Args:
+            low_number (int): The low number to compare the data values to
+            high_number (int, optional): The high number to compare the data values to. Defaults to 0.
+
+        Raises:
+            TypeError: When any of the numbers passed in are not an integer
+            ValueError: When any of the numbers passed in are not between 0 and the max number in the data
+
+        Returns:
+            int: The number of values in the data that are between the low number and high number passed in
+        """
+        if not isinstance(low_number, int) or not isinstance(high_number, int):
+            raise TypeError('The numbers must be an integer')
+
         if low_number < 0 or low_number > self.__max_number or high_number < 0 or high_number > self.__max_number:
             raise ValueError('Number must be between 0 and {}'.format(self.__max_number))
 
@@ -41,12 +59,21 @@ class DataStats:
 
 
     def greater(self, number: int) -> int: # O(1)
-        '''
-        Returns the number of values in the data list that are greater than the number passed in
+        """Returns the number of values in the data list that are greater than the number passed in
 
-        :param number: The number to compare the data list values to
-        :return: The number of values in the data list that are greater than the number passed in
-        '''
+        Args:
+            number (int): The number to compare the data list values to
+
+        Raises:
+            TypeError: When the number passed in is not an integer
+            ValueError: When the number passed in is not between 0 and the max number in the data
+
+        Returns:
+            int: The number of values in the data list that are greater than the number passed in
+        """
+        if not isinstance(number, int):
+            raise TypeError('The number must be an integer')
+
         if number < 0 or number > self.__max_number:
             raise ValueError('Number must be between 0 and {}'.format(self.__max_number))
 
@@ -59,11 +86,18 @@ class DataCapture:
 
 
     def add(self, number: int): # O(1)
-        '''
-        Adds a number to the data list and sorts the data list
+        """Adds a number to the data list and sorts the data list
 
-        :param number: The number to add to the data list
-        '''
+        Args:
+            number (int): The number to add to the data list
+
+        Raises:
+            TypeError: When the number passed in is not an integer
+            ValueError: When the number passed in is not positive
+        """
+        if not isinstance(number, int):
+            raise TypeError('The number must be an integer')
+
         if number < 0:
             raise ValueError('Number must be positive')
         
@@ -71,9 +105,9 @@ class DataCapture:
 
 
     def build_stats(self) -> DataStats: # O(n)
-        '''
-        Returns a DataStats object created with the data list
+        """Returns a DataStats object created with the data list
 
-        :return: A DataStats object created with the data list
-        '''
+        Returns:
+            DataStats: A DataStats object created with the data list
+        """
         return DataStats(self.__data_list, max(self.__data_list))
