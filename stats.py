@@ -1,6 +1,7 @@
 class DataLimit:
     value_limit = 1000 # The maximum number value allowed in the data list
 
+
 class DataStats:
     def __init__(self, data_list: list[int]) -> None: # O(n)
         """Initializes the DataStats class
@@ -53,7 +54,7 @@ class DataStats:
 
         Raises:
             TypeError: When the number passed in is not an integer
-            ValueError: When the number passed in is not between 0 and the max number in the data
+            ValueError: When the number passed in is not between 0 and ``self.__value_limit``
 
         Returns:
             int: The number of values in the data list that are greater than the number passed in
@@ -76,7 +77,7 @@ class DataStats:
 
         Raises:
             TypeError: When any of the numbers passed in are not an integer
-            ValueError: When any of the numbers passed in are not between 0 and value limit
+            ValueError: When any of the numbers passed in are not between 0 and ``self.__value_limit``
 
         Returns:
             int: The number of values in the data that are between the low number and high number passed in
