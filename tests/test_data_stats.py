@@ -15,7 +15,7 @@ class TestDataStatsLessMethod:
         number_count[3] = 1
         number_count[4] = 1
         number_count[5] = 1
-        data = DataStats(number_count)
+        data = DataStats(number_count, 5)
         assert data.less(3) == 2
 
 
@@ -26,7 +26,7 @@ class TestDataStatsLessMethod:
         number_count[3] = 2
         number_count[4] = 1
         number_count[5] = 1
-        data = DataStats(number_count)
+        data = DataStats(number_count, 7)
         assert data.less(3) == 3
 
 
@@ -37,7 +37,7 @@ class TestDataStatsLessMethod:
         number_count[3] = 2
         number_count[4] = 2
         number_count[5] = 2
-        data = DataStats(number_count)
+        data = DataStats(number_count, 8)
         assert data.less(2) == 1
 
 
@@ -48,7 +48,7 @@ class TestDataStatsLessMethod:
         number_count[3] = 2
         number_count[4] = 2
         number_count[5] = 2
-        data = DataStats(number_count)
+        data = DataStats(number_count, 11)
         assert data.less(3) == 5
 
 
@@ -58,7 +58,7 @@ class TestDataStatsLessMethod:
         number_count[2] = 2
         number_count[4] = 3
         number_count[5] = 2
-        data = DataStats(number_count)
+        data = DataStats(number_count, 11)
         assert data.less(100) == 11
 
 
@@ -69,7 +69,7 @@ class TestDataStatsLessMethod:
         number_count[3] = 1
         number_count[4] = 1
         number_count[5] = 1
-        data = DataStats(number_count)
+        data = DataStats(number_count, 5)
         with pytest.raises(TypeError):
             data.less('a')
 
@@ -81,7 +81,7 @@ class TestDataStatsLessMethod:
         number_count[3] = 1
         number_count[4] = 1
         number_count[5] = 1
-        data = DataStats(number_count)
+        data = DataStats(number_count, 5)
         with pytest.raises(ValueError):
             data.less(1001)
 
@@ -93,7 +93,7 @@ class TestDataStatsLessMethod:
         number_count[3] = 1
         number_count[4] = 1
         number_count[5] = 1
-        data = DataStats(number_count)
+        data = DataStats(number_count, 5)
         with pytest.raises(ValueError):
             data.less(-1)
 
@@ -109,7 +109,7 @@ class TestDataStatsBetweenMethod:
         number_count[3] = 1
         number_count[4] = 1
         number_count[5] = 1
-        data = DataStats(number_count)
+        data = DataStats(number_count, 5)
         assert data.between(2, 4) == 3
 
 
@@ -120,7 +120,7 @@ class TestDataStatsBetweenMethod:
         number_count[3] = 2
         number_count[4] = 1
         number_count[5] = 2
-        data = DataStats(number_count)
+        data = DataStats(number_count, 8)
         assert data.between(2, 4) == 4
 
 
@@ -130,7 +130,7 @@ class TestDataStatsBetweenMethod:
         number_count[2] = 1
         number_count[3] = 2
         number_count[5] = 2
-        data = DataStats(number_count)
+        data = DataStats(number_count, 7)
         assert data.between(2, 4) == 3
 
     
@@ -141,7 +141,7 @@ class TestDataStatsBetweenMethod:
         number_count[3] = 2
         number_count[4] = 2
         number_count[5] = 2
-        data = DataStats(number_count)
+        data = DataStats(number_count, 10)
         assert data.between(2, 4) == 6
 
 
@@ -151,7 +151,7 @@ class TestDataStatsBetweenMethod:
         number_count[2] = 2
         number_count[4] = 2
         number_count[5] = 2
-        data = DataStats(number_count)
+        data = DataStats(number_count, 8)
         assert data.between(2, 1000) == 6
 
 
@@ -162,7 +162,7 @@ class TestDataStatsBetweenMethod:
         number_count[3] = 1
         number_count[4] = 1
         number_count[5] = 1
-        data = DataStats(number_count)
+        data = DataStats(number_count, 5)
         with pytest.raises(TypeError):
             data.between('a', 1)
 
@@ -174,7 +174,7 @@ class TestDataStatsBetweenMethod:
         number_count[3] = 1
         number_count[4] = 1
         number_count[5] = 1
-        data = DataStats(number_count)
+        data = DataStats(number_count, 5)
         with pytest.raises(ValueError):
             data.between(3, 1001)
 
@@ -186,7 +186,7 @@ class TestDataStatsBetweenMethod:
         number_count[3] = 1
         number_count[4] = 1
         number_count[5] = 1
-        data = DataStats(number_count)
+        data = DataStats(number_count, 5)
         with pytest.raises(ValueError):
             data.between(-1, 7)
 
@@ -202,7 +202,7 @@ class TestDataStatsGreaterMethod:
         number_count[3] = 1
         number_count[4] = 1
         number_count[5] = 1
-        data = DataStats(number_count)
+        data = DataStats(number_count, 5)
         assert data.greater(3) == 2
 
 
@@ -213,7 +213,7 @@ class TestDataStatsGreaterMethod:
         number_count[3] = 2
         number_count[4] = 1
         number_count[5] = 2
-        data = DataStats(number_count)
+        data = DataStats(number_count, 8)
         assert data.greater(3) == 3
 
 
@@ -223,7 +223,7 @@ class TestDataStatsGreaterMethod:
         number_count[2] = 1
         number_count[3] = 2
         number_count[5] = 2
-        data = DataStats(number_count)
+        data = DataStats(number_count, 7)
         assert data.greater(3) == 2
 
 
@@ -234,7 +234,7 @@ class TestDataStatsGreaterMethod:
         number_count[3] = 2
         number_count[4] = 2
         number_count[5] = 2
-        data = DataStats(number_count)
+        data = DataStats(number_count, 10)
         assert data.greater(3) == 4
 
 
@@ -244,7 +244,7 @@ class TestDataStatsGreaterMethod:
         number_count[2] = 2
         number_count[4] = 2
         number_count[5] = 2
-        data = DataStats(number_count)
+        data = DataStats(number_count, 8)
         assert data.greater(2) == 4
 
 
@@ -255,7 +255,7 @@ class TestDataStatsGreaterMethod:
         number_count[3] = 1
         number_count[4] = 1
         number_count[5] = 1
-        data = DataStats(number_count)
+        data = DataStats(number_count, 5)
         with pytest.raises(TypeError):
             data.greater('a')
 
@@ -267,7 +267,7 @@ class TestDataStatsGreaterMethod:
         number_count[3] = 1
         number_count[4] = 1
         number_count[5] = 1
-        data = DataStats(number_count)
+        data = DataStats(number_count, 5)
         with pytest.raises(ValueError):
             data.greater(1001)
     
@@ -279,6 +279,6 @@ class TestDataStatsGreaterMethod:
         number_count[3] = 1
         number_count[4] = 1
         number_count[5] = 1
-        data = DataStats(number_count)
+        data = DataStats(number_count, 5)
         with pytest.raises(ValueError):
             data.greater(-1)
