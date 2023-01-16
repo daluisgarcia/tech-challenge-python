@@ -1,5 +1,6 @@
 class DataLimit:
-    value_limit = 1000 # The maximum number value allowed in the data list
+    """ Has the maximum number value allowed for numbers """    
+    value_limit = 1000
 
 
 class DataStats:
@@ -113,7 +114,7 @@ class DataCapture:
 
 
     def add(self, number: int): # O(1)
-        """Adds a number to the data list and sorts the data list
+        """Adds one to the number in numbers count list and increments the total numbers count
 
         Args:
             number (int): The number to add to the data list. Must be between 0 and ``self.__value_limit``.
@@ -133,7 +134,7 @@ class DataCapture:
 
 
     def build_stats(self) -> DataStats: # O(n)
-        """Returns a DataStats object created with the data list
+        """Returns a DataStats object created with the numbers count list and the total numbers count
 
         Returns:
             DataStats: A DataStats object created with the data list
